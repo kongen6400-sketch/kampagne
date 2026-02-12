@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="da">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kandidatur | Bitten & Mads Clausens Fond</title>
+  <meta name="description" content="Kampagneside for kandidatur til medarbejderrepræsentant i Bestyrelsen for Bitten og Mads Clausens Fond." />
+  <style>
+    :root{
+      --bg:#0b1020;
+      --card:#111a33;
+      --muted:#b8c0dd;
+      --text:#f4f6ff;
+      --accent:#69d2ff;
+      --accent2:#8cffc7;
+      --line:rgba(255,255,255,.12);
+      --shadow: 0 20px 60px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 1040px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--font);
+      background: radial-gradient(1200px 800px at 15% 10%, rgba(105,210,255,.18), transparent 55%),
+                  radial-gradient(900px 700px at 85% 20%, rgba(140,255,199,.14), transparent 60%),
+                  radial-gradient(900px 900px at 50% 90%, rgba(105,210,255,.10), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.5;
+    }
+    a{color:inherit}
+    .container{max-width:var(--max); margin:0 auto; padding:24px;}
+
+    /* Header */
+    header{
+      position:sticky;
+      top:0;
+      backdrop-filter: blur(10px);
+      background: rgba(11,16,32,.65);
+      border-bottom: 1px solid var(--line);
+      z-index:50;
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:14px 24px;
+      max-width:var(--max);
+      margin:0 auto;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+    }
+    .mark{
+      width:38px;
+      height:38px;
+      border-radius:12px;
+      background: linear-gradient(135deg, rgba(105,210,255,.95), rgba(140,255,199,.9));
+      box-shadow: 0 12px 30px rgba(105,210,255,.18);
+      position:relative;
+      overflow:hidden;
+    }
+    .mark:after{
+      content:"";
+      position:absolute;
+      inset:-40% -30%;
+      background: radial-gradient(circle at 30% 20%, rgba(255,255,255,.55), transparent 45%);
+      transform: rotate(18deg);
+    }
+    .brand strong{display:block; font-size:14px; letter-spacing:.2px}
+    .brand span{display:block; font-size:12px; color:var(--muted)}
+
+    .navlinks{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .navlinks a{
+      text-decoration:none;
+      font-size:13px;
+      padding:8px 10px;
+      border-radius:12px;
+      color:var(--muted);
+      border:1px solid transparent;
+    }
+    .navlinks a:hover{color:var(--text); border-color:var(--line); background: rgba(255,255,255,.03)}
+
+    .cta{
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+    .btn{
+      appearance:none;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color:var(--text);
+      padding:10px 12px;
+      border-radius:14px;
+      font-size:13px;
+      cursor:pointer;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+    }
+    .btn:hover{background: rgba(255,255,255,.06)}
+    .btn.primary{
+      border-color: rgba(105,210,255,.45);
+      background: linear-gradient(135deg, rgba(105,210,255,.18), rgba(140,255,199,.12));
+      box-shadow: 0 18px 50px rgba(105,210,255,.12);
+    }
+    .btn.primary:hover{border-color: rgba(105,210,255,.75)}
+
+    /* Hero */
+    .hero{
+      padding:40px 0 26px;
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:24px;
+      align-items:stretch;
+    }
+    @media (max-width: 880px){
+      .hero{grid-template-columns:1fr;}
+      .nav{padding:12px 16px;}
+      .container{padding:18px;}
+    }
+
+    .card{
+      background: rgba(17,26,51,.72);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .heroMain{padding:28px;}
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-size:12px;
+      color:var(--muted);
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+    .dot{width:8px;height:8px;border-radius:99px;background: var(--accent); box-shadow:0 0 0 5px rgba(105,210,255,.12)}
+
+    h1{margin:14px 0 10px; font-size:38px; line-height:1.1; letter-spacing:-.4px;}
+    p.lead{margin:0 0 18px; color:var(--muted); font-size:16px;}
+
+    .pillRow{display:flex; flex-wrap:wrap; gap:10px; margin:18px 0 0;}
+    .pill{
+      font-size:12px;
+      color:var(--text);
+      padding:8px 10px;
+      border-radius: 999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+
+    .heroSide{display:grid; grid-template-rows: auto 1fr; gap:14px; padding:16px;}
+    .sideTop{padding:16px; border-radius:16px; border:1px solid var(--line); background: rgba(255,255,255,.03)}
+    .sideTop h2{margin:0 0 8px; font-size:15px; letter-spacing:.2px}
+    .sideTop p{margin:0; color:var(--muted); font-size:13px}
+
+    .facts{display:grid; gap:10px;}
+    .fact{
+      padding:14px 14px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.02);
+    }
+    .fact strong{display:block; font-size:13px}
+    .fact span{display:block; margin-top:2px; font-size:12px; color:var(--muted)}
+
+    /* Sections */
+    section{margin:18px 0 0;}
+    .sectionCard{padding:22px;}
+    .sectionTitle{display:flex; justify-content:space-between; align-items:flex-end; gap:12px; margin-bottom:14px;}
+    .sectionTitle h2{margin:0; font-size:18px; letter-spacing:.2px}
+    .sectionTitle p{margin:0; color:var(--muted); font-size:13px}
+
+    .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
+    @media (max-width: 900px){.grid3{grid-template-columns:1fr;}}
+
+    .mini{
+      padding:16px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.02);
+    }
+    .mini h3{margin:0 0 8px; font-size:14px}
+    .mini p{margin:0; color:var(--muted); font-size:13px}
+
+    .list{
+      margin:0;
+      padding-left:18px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .list li{margin:8px 0}
+
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+    @media (max-width: 900px){.split{grid-template-columns:1fr;}}
+
+    /* Footer */
+    footer{margin:18px 0 10px; padding:18px 0 30px; color:var(--muted); font-size:12px;}
+
+    /* Print */
+    @media print{
+      header{position:static; backdrop-filter:none; background:#fff; color:#000}
+      body{background:#fff; color:#000}
+      .card{box-shadow:none; background:#fff}
+      .btn{display:none}
+      .navlinks{display:none}
+      .kicker{border-color:#ddd}
+      .mini,.fact,.sideTop{background:#fff}
+      a{text-decoration:none}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav" aria-label="Hovednavigation">
+      <a class="brand" href="#top">
+        <div class="mark" aria-hidden="true"></div>
+        <div>
+          <strong>Kandidatur</strong>
+          <span>Bitten og Mads Clausens Fond</span>
+        </div>
+      </a>
+
+      <div class="navlinks">
+        <a href="#om">Om mig</a>
+        <a href="#maerkesager">Mærkesager</a>
+        <a href="#vaerdier">Værdier</a>
+        <a href="#spoergsmaal">Spørgsmål og svar</a>
+        <a href="#kontakt">Kontakt</a>
+      </div>
+
+      <div class="cta">
+        <a class="btn primary" href="#kontakt" aria-label="Gå til kontakt">
+          <span aria-hidden="true">✉️</span>
+          <span>Kontakt</span>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top" class="container">
+    <div class="hero">
+      <div class="card heroMain">
+        <div class="kicker"><span class="dot" aria-hidden="true"></span> Medarbejderrepræsentant, jordnær og pragmatisk</div>
+        <h1>Jeg stiller op, for at fondens midler gør reel forskel i hverdagen.</h1>
+        <p class="lead">
+          Mit fokus er sunde prioriteringer, mindre prestige og mere effekt. Jeg tror på, at små, målrettede indsatser kan skabe stor værdi,
+          både for mennesker, lokalsamfund og arbejdspladser.
+        </p>
+        <div class="cta">
+          <a class="btn primary" href="#maerkesager"><span aria-hidden="true">✅</span><span>Se mine mærkesager</span></a>
+          <a class="btn" href="#spoergsmaal"><span aria-hidden="true">💬</span><span>Læs Q&amp;A</span></a>
+        </div>
+        <div class="pillRow" aria-label="Nøgletemaer">
+          <span class="pill">Regional udvikling, Sønderjylland og Als</span>
+          <span class="pill">Flere nicheprojekter</span>
+          <span class="pill">Færre prestigeprojekter</span>
+          <span class="pill">Effekt over facade</span>
+        </div>
+      </div>
+
+      <aside class="card heroSide" aria-label="Kort overblik">
+        <div class="sideTop">
+          <h2>Hvad kan du forvente af mig?</h2>
+          <p>
+            Jeg vil bidrage og lære. Jeg stiller spørgsmål, følger op og sikrer, at beslutninger bliver til konkret værdi.
+          </p>
+        </div>
+        <div class="facts">
+          <div class="fact">
+            <strong>Stil</strong>
+            <span>Jordnær, pragmatisk, løsningsorienteret</span>
+          </div>
+          <div class="fact">
+            <strong>Fokus</strong>
+            <span>Prioritering, transparens, effekt og ansvarlighed</span>
+          </div>
+          <div class="fact">
+            <strong>Hvorfor</strong>
+            <span>Fonden skal støtte dér, hvor indsatsen giver mest mening i hverdagen</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <section id="om" class="card sectionCard">
+      <div class="sectionTitle">
+        <h2>Om mig</h2>
+        <p>Kort og klart, hvem jeg er og hvad jeg står for</p>
+      </div>
+      <div class="split">
+        <div class="mini">
+          <h3>Baggrund</h3>
+          <p>
+            Jeg har erfaring fra store, internationale IT- og infrastrukturprojekter, og jeg er vant til at få komplekse ting til at fungere i praksis.
+            Som medarbejderrepræsentant er jeg også bindeled mellem beslutninger og den hverdag, vi faktisk står i.
+          </p>
+        </div>
+        <div class="mini">
+          <h3>Det du får</h3>
+          <ul class="list">
+            <li>En repræsentant, der prioriterer sund fornuft og tydelighed</li>
+            <li>En der tager ansvar, følger op og insisterer på konkrete effekter</li>
+            <li>En der tror på små indsatser med stor effekt</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="maerkesager" class="card sectionCard">
+      <div class="sectionTitle">
+        <h2>Mærkesager</h2>
+        <p>Det jeg vil arbejde for i bestyrelsesarbejdet</p>
+      </div>
+      <div class="grid3">
+        <div class="mini">
+          <h3>Regional udvikling</h3>
+          <p>
+            Støtte til initiativer i Sønderjylland og på Als, med fokus på lokale behov, arbejdspladser og fællesskaber.
+          </p>
+        </div>
+        <div class="mini">
+          <h3>Flere nicheprojekter</h3>
+          <p>
+            Flere mindre projekter, hvor effekten kan mærkes direkte. Mindre af det, der ser godt ud på papir, men ikke i hverdagen.
+          </p>
+        </div>
+        <div class="mini">
+          <h3>Sunde prioriteringer</h3>
+          <p>
+            Klarere kriterier, tydeligere opfølgning og ansvarlig brug af midler. Fokus på effekt, læring og transparens.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="vaerdier" class="card sectionCard">
+      <div class="sectionTitle">
+        <h2>Værdier</h2>
+        <p>Sådan træffer jeg beslutninger</p>
+      </div>
+      <div class="split">
+        <div class="mini">
+          <h3>Jordnær pragmatisme</h3>
+          <p>
+            Jeg går efter løsninger, der virker. Ikke fordi de lyder rigtige, men fordi de kan gennemføres og skabe varig værdi.
+          </p>
+        </div>
+        <div class="mini">
+          <h3>Effekt over prestige</h3>
+          <p>
+            Jeg vil hellere støtte ti indsatser, der løfter hverdagen, end ét projekt, der primært giver flotte overskrifter.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="spoergsmaal" class="card sectionCard">
+      <div class="sectionTitle">
+        <h2>Spørgsmål og svar</h2>
+        <p>Et par svar du typisk vil lede efter</p>
+      </div>
+      <div class="split">
+        <div class="mini">
+          <h3>Hvorfor stiller du op?</h3>
+          <p>
+            Fordi fondens formål er vigtigt, og fordi jeg vil være med til at sikre, at midlerne bliver brugt dér, hvor de gør mest gavn.
+            Jeg ser gang på gang, at en lille indsats kan have stor effekt, når den rammer rigtigt.
+          </p>
+        </div>
+        <div class="mini">
+          <h3>Hvad er din tilgang i bestyrelsesarbejdet?</h3>
+          <ul class="list">
+            <li>Stille de rigtige spørgsmål og kræve klare svar</li>
+            <li>Fokusere på konkrete effekter og målepunkter</li>
+            <li>Være nysgerrig, lære og omsætte indsigter til handling</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" class="card sectionCard">
+      <div class="sectionTitle">
+        <h2>Kontakt</h2>
+        <p>Send input, spørgsmål eller forslag</p>
+      </div>
+
+      <div class="split">
+        <div class="mini">
+          <h3>Sådan kan du kontakte mig</h3>
+          <p style="margin:0 0 10px; color:var(--muted); font-size:13px">
+            Udfyld felterne og tryk på knappen, så åbner din mailklient med en kladde.
+          </p>
+
+          <form id="contactForm" style="display:grid; gap:10px" autocomplete="on">
+            <label style="display:grid; gap:6px">
+              <span style="font-size:12px; color:var(--muted)">Dit navn</span>
+              <input name="name" required placeholder="Navn" style="padding:12px 12px; border-radius:14px; border:1px solid var(--line); background: rgba(255,255,255,.03); color: var(--text); outline:none" />
+            </label>
+            <label style="display:grid; gap:6px">
+              <span style="font-size:12px; color:var(--muted)">Emne</span>
+              <input name="subject" required placeholder="Spørgsmål, idé, feedback" style="padding:12px 12px; border-radius:14px; border:1px solid var(--line); background: rgba(255,255,255,.03); color: var(--text); outline:none" />
+            </label>
+            <label style="display:grid; gap:6px">
+              <span style="font-size:12px; color:var(--muted)">Besked</span>
+              <textarea name="message" required rows="5" placeholder="Skriv din besked her" style="padding:12px 12px; border-radius:14px; border:1px solid var(--line); background: rgba(255,255,255,.03); color: var(--text); outline:none; resize:vertical"></textarea>
+            </label>
+
+            <button class="btn primary" type="submit" style="justify-content:center">
+              <span aria-hidden="true">📨</span>
+              <span>Åbn e-mailkladde</span>
+            </button>
+
+            <p style="margin:6px 0 0; color:var(--muted); font-size:12px">
+              Tip: Du kan ændre modtager-adressen i koden (SØG efter <code>REPLACE_WITH_EMAIL</code>).
+            </p>
+          </form>
+        </div>
+
+        <div class="mini">
+          <h3>Hurtige budskaber, du kan dele</h3>
+          <ul class="list">
+            <li>Fonden skal støtte dér, hvor effekten kan mærkes i hverdagen</li>
+            <li>Flere nicheprojekter og færre prestigeprojekter</li>
+            <li>Regional udvikling i Sønderjylland og på Als, med sunde prioriteringer</li>
+          </ul>
+
+          <div style="margin-top:14px; padding:12px; border-radius:16px; border:1px solid var(--line); background: rgba(255,255,255,.02)">
+            <strong style="display:block; font-size:13px; margin-bottom:6px">Opdater siden på 2 minutter</strong>
+            <span style="display:block; color:var(--muted); font-size:12px">
+              1) Redigér navn og tekst 2) Indsæt din e-mailadresse 3) Upload filen som <code>index.html</code> til intranet, SharePoint eller en simpel webhost.
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; border-top:1px solid var(--line); padding-top:14px">
+        <span>© <span id="year"></span> Kandidatur til Bitten og Mads Clausens Fond</span>
+        <span>Design: enkelt, læsbart og printvenligt</span>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Opdatér årstal
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Kontaktformular: åbner mailto med udfyldt emne og tekst.
+    // Skift her til din e-mailadresse.
+    const TO_EMAIL = 'REPLACE_WITH_EMAIL';
+
+    document.getElementById('contactForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const data = new FormData(e.target);
+      const name = String(data.get('name') || '').trim();
+      const subject = String(data.get('subject') || '').trim();
+      const message = String(data.get('message') || '').trim();
+
+      const body = [
+        `Navn: ${name}`,
+        '',
+        message,
+        '',
+        'Sendt fra kampagnesiden'
+      ].join('\n');
+
+      const mailto = `mailto:${encodeURIComponent(TO_EMAIL)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      if (TO_EMAIL === 'REPLACE_WITH_EMAIL') {
+        alert('Husk at indsætte din e-mailadresse i koden (TO_EMAIL), før du bruger formularen.');
+        return;
+      }
+
+      window.location.href = mailto;
+    });
+  </script>
+</body>
+</html>
