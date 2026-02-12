@@ -220,6 +220,19 @@
     /* Footer */
     footer{margin:18px 0 10px; padding:18px 0 30px; color:var(--muted); font-size:12px;}
 
+    /* Form messages */
+    .notice{
+      display:none;
+      margin-top:10px;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.02);
+      color:var(--muted);
+      font-size:12px;
+    }
+    .notice.show{display:block}
+
     /* Print */
     @media print{
       header{position:static; backdrop-filter:none; background:#fff; color:#000}
@@ -230,6 +243,7 @@
       .kicker{border-color:#ddd}
       .mini,.fact,.sideTop{background:#fff}
       a{text-decoration:none}
+      .notice{display:none}
     }
   </style>
 </head>
@@ -410,32 +424,56 @@
 
       <div class="split">
         <div class="mini">
-          <h3>Sådan kan du kontakte mig</h3>
+          <h3>Skriv til mig</h3>
           <p style="margin:0 0 10px; color:var(--muted); font-size:13px">
-            Udfyld felterne og tryk på knappen, så åbner din mailklient med en kladde.
+            Udfyld formularen og tryk send. Beskeden bliver sendt direkte som e-mail.
           </p>
 
           <form id="contactForm" style="display:grid; gap:10px" autocomplete="on">
+            <!-- Web3Forms -->
+            <input type="hidden" name="access_key" value="bee12d4b-07c7-4013-9be9-25956d84bcba">
+            <input type="hidden" name="subject" value="Kontakt fra kampagnesiden">
+
+            <!-- Bonus: anti-spam honeypot (skal være tom, ellers ignoreres beskeden) -->
+            <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+            <!-- Bonus: hvor Web3Forms sender brugeren hen efter submit (vi bruger JS, så den bruges normalt ikke) -->
+            <input type="hidden" name="redirect" value="https://kongen6400-sketch.github.io/kampange/#kontakt">
+
             <label style="display:grid; gap:6px">
               <span style="font-size:12px; color:var(--muted)">Dit navn</span>
-              <input name="name" required placeholder="Navn" style="padding:12px 12px; border-radius:14px; border:1px solid var(--line); background: rgba(255,255,255,.03); color: var(--text); outline:none" />
+              <input name="name" required placeholder="Navn"
+                style="padding:12px 12px; border-radius:14px; border:1px solid var(--line); background: rgba(255,255,255,.03); color: var(--text); outline:none" />
             </label>
+
+            <label style="display:grid; gap:6px">
+              <span style="font-size:12px; color:var(--muted)">Din e-mail</span>
+              <input name="email" type="email" required placeholder="navn@firma.dk"
+                style="padding:12px 12px; border-radius:14px; border:1px solid var(--line); background: rgba(255,255,255,.03); color: var(--text); outline:none" />
+            </label>
+
             <label style="display:grid; gap:6px">
               <span style="font-size:12px; color:var(--muted)">Emne</span>
-              <input name="subject" required placeholder="Spørgsmål, idé, feedback" style="padding:12px 12px; border-radius:14px; border:1px solid var(--line); background: rgba(255,255,255,.03); color: var(--text); outline:none" />
+              <input name="topic" required placeholder="Spørgsmål, idé, feedback"
+                style="padding:12px 12px; border-radius:14px; border:1px solid var(--line); background: rgba(255,255,255,.03); color: var(--text); outline:none" />
             </label>
+
             <label style="display:grid; gap:6px">
               <span style="font-size:12px; color:var(--muted)">Besked</span>
-              <textarea name="message" required rows="5" placeholder="Skriv din besked her" style="padding:12px 12px; border-radius:14px; border:1px solid var(--line); background: rgba(255,255,255,.03); color: var(--text); outline:none; resize:vertical"></textarea>
+              <textarea name="message" required rows="5" placeholder="Skriv din besked her"
+                style="padding:12px 12px; border-radius:14px; border:1px solid var(--line); background: rgba(255,255,255,.03); color: var(--text); outline:none; resize:vertical"></textarea>
             </label>
 
-            <button class="btn primary" type="submit" style="justify-content:center">
+            <button id="sendBtn" class="btn primary" type="submit" style="justify-content:center">
               <span aria-hidden="true">📨</span>
-              <span>Åbn e-mailkladde</span>
+              <span>Send besked</span>
             </button>
 
+            <div id="okMsg" class="notice">Tak for beskeden, den er sendt.</div>
+            <div id="errMsg" class="notice">Noget gik galt. Prøv igen om lidt.</div>
+
             <p style="margin:6px 0 0; color:var(--muted); font-size:12px">
-              Tip: Du kan ændre modtager-adressen i koden (SØG efter <code>REPLACE_WITH_EMAIL</code>).
+              Bemærk: Beskeden sendes via Web3Forms.
             </p>
           </form>
         </div>
@@ -447,17 +485,79 @@
             <li>Flere nicheprojekter og færre prestigeprojekter</li>
             <li>Regional udvikling i Sønderjylland og på Als, med sunde prioriteringer</li>
           </ul>
-
-          <div style="margin-top:14px; padding:12px; border-radius:16px; border:1px solid var(--line); background: rgba(255,255,255,.02)">
-            <strong style="display:block; font-size:13px; margin-bottom:6px">Opdater siden på 2 minutter</strong>
-            <span style="display:block; color:var(--muted); font-size:12px">
-              1) Redigér navn og tekst 2) Indsæt din e-mailadresse 3) Upload filen som <code>index.html</code> til intranet, SharePoint eller en simpel webhost.
-            </span>
-          </div>
         </div>
       </div>
     </section>
 
     <footer>
       <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; border-top:1px solid var(--line); padding-top:14px">
-        <span>© <span id="year"></span> Kandidatur til Bitten og M
+        <span>© <span id="year"></span> Kandidatur til Bitten og Mads Clausens Fond</span>
+        <span>Design: enkelt, læsbart og printvenligt</span>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Opdatér årstal
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Send formular via fetch så vi bliver på siden (ingen redirect), og viser "tak for beskeden".
+    const form = document.getElementById('contactForm');
+    const sendBtn = document.getElementById('sendBtn');
+    const okMsg = document.getElementById('okMsg');
+    const errMsg = document.getElementById('errMsg');
+
+    function show(el) { el.classList.add('show'); }
+    function hide(el) { el.classList.remove('show'); }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      hide(okMsg);
+      hide(errMsg);
+      sendBtn.disabled = true;
+
+      const endpoint = 'https://api.web3forms.com/submit';
+
+      // Saml data
+      const fd = new FormData(form);
+
+      // Bonus: gør mailen mere læsbar ved at prepende felter i message
+      const name = (fd.get('name') || '').toString().trim();
+      const email = (fd.get('email') || '').toString().trim();
+      const topic = (fd.get('topic') || '').toString().trim();
+      const message = (fd.get('message') || '').toString().trim();
+
+      fd.set('message', [
+        `Navn: ${name}`,
+        `E-mail: ${email}`,
+        `Emne: ${topic}`,
+        '',
+        message
+      ].join('\n'));
+
+      // Bonus: inkluder siden den kom fra
+      fd.set('from_page', window.location.href);
+
+      try {
+        const res = await fetch(endpoint, {
+          method: 'POST',
+          body: fd
+        });
+
+        const data = await res.json().catch(() => ({}));
+
+        if (res.ok && data && data.success) {
+          show(okMsg);
+          form.reset();
+        } else {
+          show(errMsg);
+        }
+      } catch (err) {
+        show(errMsg);
+      } finally {
+        sendBtn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
