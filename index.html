@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kandidatur | Bitten & Mads Clausens Fond</title>
+  <title>Kandidatur | Bitten og Mads Clausens Fond</title>
   <meta name="description" content="Kampagneside for kandidatur til medarbejderrepræsentant i Bestyrelsen for Bitten og Mads Clausens Fond." />
   <style>
     :root{
@@ -460,45 +460,4 @@
 
     <footer>
       <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; border-top:1px solid var(--line); padding-top:14px">
-        <span>© <span id="year"></span> Kandidatur til Bitten og Mads Clausens Fond</span>
-        <span>Design: enkelt, læsbart og printvenligt</span>
-      </div>
-    </footer>
-  </main>
-
-  <script>
-    // Opdatér årstal
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Kontaktformular: åbner mailto med udfyldt emne og tekst.
-    // Skift her til din e-mailadresse.
-    const TO_EMAIL = 'kongen6400@gmail.com';
-
-    document.getElementById('contactForm').addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const data = new FormData(e.target);
-      const name = String(data.get('name') || '').trim();
-      const subject = String(data.get('subject') || '').trim();
-      const message = String(data.get('message') || '').trim();
-
-      const body = [
-        `Navn: ${name}`,
-        '',
-        message,
-        '',
-        'Sendt fra kampagnesiden'
-      ].join('\n');
-
-      const mailto = `mailto:${encodeURIComponent(TO_EMAIL)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-      if (TO_EMAIL === 'kongen6400@gmail.com') {
-        alert('Husk at indsætte din e-mailadresse i koden (TO_EMAIL), før du bruger formularen.');
-        return;
-      }
-
-      window.location.href = mailto;
-    });
-  </script>
-</body>
-</html>
+        <span>© <span id="year"></span> Kandidatur til Bitten og M
