@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Kandidatur | Bitten og Mads Clausens Fond | Carsten Frandsen</title>
-  <meta name="description" content="Kampagneside for kandidatur til medarbejderrepræsentant i Bestyrelsen for Bitten og Mads Clausens Fond." />
+  <meta name="description" content="Carsten Frandsen, kandidat til medarbejderrepræsentant i Bestyrelsen for Bitten og Mads Clausens Fond. Fokus på ansvarlighed, gennemsigtighed og værdi i hverdagen, især på Als og i Sønderborg." />
   <style>
     :root{
       --bg:#0b1020;
@@ -123,6 +123,11 @@
       box-shadow: 0 18px 50px rgba(105,210,255,.12);
     }
     .btn.primary:hover{border-color: rgba(105,210,255,.75)}
+    .btn.ghost{
+      border-color: rgba(140,255,199,.28);
+      background: rgba(140,255,199,.06);
+    }
+    .btn.ghost:hover{border-color: rgba(140,255,199,.55)}
 
     /* Mobile menu button */
     .menuBtn{
@@ -157,6 +162,7 @@
       overflow:hidden;
     }
     .heroMain{padding:28px;}
+
     .kicker{
       display:inline-flex;
       align-items:center;
@@ -171,7 +177,52 @@
     .dot{width:8px;height:8px;border-radius:99px;background: var(--accent); box-shadow:0 0 0 5px rgba(105,210,255,.12)}
 
     h1{margin:14px 0 10px; font-size:38px; line-height:1.1; letter-spacing:-.4px;}
-    p.lead{margin:0 0 18px; color:var(--muted); font-size:16px;}
+    p.lead{margin:0 0 14px; color:var(--muted); font-size:16px;}
+
+    .heroTop{
+      display:flex;
+      gap:16px;
+      align-items:flex-start;
+      justify-content:space-between;
+      margin-top:14px;
+    }
+    .heroTopText{flex:1 1 auto; min-width: 0;}
+    .heroPortrait{
+      flex:0 0 auto;
+      width:120px;
+      height:120px;
+      border-radius:18px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      overflow:hidden;
+      box-shadow: 0 18px 50px rgba(0,0,0,.25);
+    }
+    .heroPortrait img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .whoLine{
+      margin:0 0 10px;
+      color:var(--muted);
+      font-size:13px;
+      padding:10px 12px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background: rgba(255,255,255,.02);
+    }
+
+    .respectLine{
+      margin:12px 0 0;
+      color:var(--muted);
+      font-size:13px;
+      padding:12px 12px;
+      border:1px solid rgba(140,255,199,.22);
+      border-radius:16px;
+      background: rgba(140,255,199,.06);
+    }
 
     .pillRow{display:flex; flex-wrap:wrap; gap:10px; margin:18px 0 0;}
     .pill{
@@ -278,6 +329,16 @@
       h1{font-size:30px;}
       p.lead{font-size:15px;}
 
+      .heroTop{
+        flex-direction:column-reverse;
+        align-items:stretch;
+      }
+      .heroPortrait{
+        width:100%;
+        height:180px;
+        border-radius:18px;
+      }
+
       .sectionCard{padding:16px;}
       .mini{padding:14px;}
 
@@ -325,7 +386,8 @@
 
       <div class="navlinks" id="navlinks">
         <a href="#om">Om mig</a>
-        <a href="#maerkesager">Mærkesager</a>
+        <a href="#maerkesager">Det lægger jeg vægt på</a>
+        <a href="#praksis">I praksis</a>
         <a href="#vaerdier">Værdier</a>
         <a href="#spoergsmaal">Spørgsmål og svar</a>
         <a href="#kontakt">Kontakt</a>
@@ -343,24 +405,43 @@
   <main id="top" class="container">
     <div class="hero">
       <div class="card heroMain">
-        <div class="kicker"><span class="dot" aria-hidden="true"></span> Medarbejderrepræsentant, jordnær og pragmatisk</div>
+        <div class="kicker"><span class="dot" aria-hidden="true"></span> Ordentlig og ansvarlig, i praksis</div>
 
-        <!-- OPDATERET HERO-TEXT -->
         <h1>Jeg stiller op med ønsket om at bidrage konstruktivt til fondens arbejde.</h1>
-        <p class="lead">
-          Jeg vil bringe et jordnært perspektiv og fokus på ansvarlighed, gennemsigtighed og værdi i hverdagen.
-          Jeg tror på, at små, målrettede indsatser ofte kan skabe stor effekt, både for mennesker, lokalsamfund og arbejdspladser.
-        </p>
 
-        <div class="cta">
-          <a class="btn primary" href="#maerkesager"><span aria-hidden="true">✅</span><span>Se mine mærkesager</span></a>
-          <a class="btn" href="#spoergsmaal"><span aria-hidden="true">💬</span><span>Læs Q&amp;A</span></a>
-        </div>
-        <div class="pillRow" aria-label="Nøgletemaer">
-          <span class="pill">Regional udvikling, Sønderjylland og Als</span>
-          <span class="pill">Flere nicheprojekter</span>
-          <span class="pill">Færre prestigeprojekter</span>
-          <span class="pill">Effekt over facade</span>
+        <div class="heroTop">
+          <div class="heroTopText">
+            <p class="whoLine">
+              Medarbejderrepræsentant, arbejder med internationale IT-projekter, bor og engagerer mig lokalt.
+            </p>
+
+            <p class="lead">
+              Jeg vil bringe et jordnært perspektiv og fokus på ansvarlighed, gennemsigtighed og værdi i hverdagen,
+              særligt med blik for Als og Sønderborg, men også i en bredere Danfoss-kontekst.
+            </p>
+
+            <div class="cta">
+              <a class="btn primary" href="#kontakt"><span aria-hidden="true">🗳️</span><span>Stem på mig</span></a>
+              <a class="btn ghost" href="#om"><span aria-hidden="true">👤</span><span>Lær mig at kende</span></a>
+            </div>
+
+            <div class="respectLine">
+              Fonden gør allerede et vigtigt stykke arbejde. Jeg stiller op for at bidrage med et ekstra perspektiv
+              og støtte en fortsat ansvarlig udvikling med fokus på det, der kan mærkes i hverdagen.
+            </div>
+
+            <div class="pillRow" aria-label="Nøgletemaer">
+              <span class="pill">Als og Sønderborg, lokalt blik</span>
+              <span class="pill">Små indsatser, stor effekt</span>
+              <span class="pill">Gennemsigtighed og ansvarlighed</span>
+              <span class="pill">Værdi i hverdagen</span>
+            </div>
+          </div>
+
+          <div class="heroPortrait" aria-label="Portræt">
+            <!-- Læg filen carsten.jpg i samme mappe som index.html -->
+            <img src="carsten.jpg" alt="Carsten Frandsen" loading="lazy" />
+          </div>
         </div>
       </div>
 
@@ -368,9 +449,11 @@
         <div class="sideTop">
           <h2>Hvad kan du forvente af mig?</h2>
           <p>
-            Jeg vil bidrage og lære. Jeg stiller spørgsmål, følger op og omsætter beslutninger til konkret værdi.
+            En ordentlig og ansvarlig tilgang, hvor jeg forbereder mig, stiller spørgsmål og følger op,
+            så beslutninger bliver omsat til konkret værdi.
           </p>
         </div>
+
         <div class="facts">
           <div class="fact">
             <strong>Stil</strong>
@@ -378,13 +461,11 @@
           </div>
           <div class="fact">
             <strong>Fokus</strong>
-            <span>Prioritering, transparens, effekt og ansvarlighed</span>
+            <span>Ansvarlighed, gennemsigtighed og værdi i hverdagen</span>
           </div>
-
-          <!-- OPDATERET "HVORFOR" -->
           <div class="fact">
             <strong>Hvorfor</strong>
-            <span>Et ønske om at bidrage konstruktivt og styrke værdi og ansvarlighed i fondens arbejde</span>
+            <span>Et ønske om at bidrage konstruktivt til fondens fortsatte arbejde</span>
           </div>
         </div>
       </aside>
@@ -393,33 +474,42 @@
     <section id="om" class="card sectionCard">
       <div class="sectionTitle">
         <h2>Om mig</h2>
-        <p>Erfaring, ansvar og engagement</p>
+        <p>Erfaring, ansvar og lokalt engagement</p>
+      </div>
+
+      <!-- Punkt 2: 3 facts -->
+      <div class="mini" style="margin-bottom:14px;">
+        <h3>Kort fortalt</h3>
+        <ul class="list">
+          <li><strong>Rolle:</strong> Medarbejderrepræsentant, vant til at samle input og give klare tilbagemeldinger</li>
+          <li><strong>Erfaring:</strong> Internationale IT-projekter med fokus på prioritering, governance og drift i praksis</li>
+          <li><strong>Lokalt:</strong> Engageret på Als og i Sønderborg, og optaget af at små midler kan gøre stor forskel</li>
+        </ul>
       </div>
 
       <div class="split">
         <div class="mini">
           <h3>Professionel baggrund</h3>
           <p>
-            Jeg arbejder med store, internationale IT- og infrastrukturprojekter, hvor ansvar,
-            struktur og langsigtede løsninger er afgørende. Jeg er vant til at navigere i komplekse
-            beslutninger og sikre, at strategi bliver omsat til konkret handling.
+            Jeg arbejder med store, internationale IT- og infrastrukturprojekter, hvor ansvar, struktur
+            og langsigtede løsninger er afgørende. Jeg er vant til at navigere i komplekse beslutninger
+            og sikre, at strategi bliver omsat til konkret handling.
           </p>
           <p style="margin-top:10px;">
-            Som medarbejderrepræsentant fungerer jeg som bindeled mellem ledelse og kolleger,
-            og jeg tager den rolle alvorligt. Det kræver både integritet og evnen til at lytte.
+            Som medarbejderrepræsentant er jeg bindeled mellem beslutninger og den hverdag, vi står i.
+            Det kræver integritet, ro og evnen til at lytte, også når der er mange perspektiver.
           </p>
         </div>
 
         <div class="mini">
           <h3>Tillid og frivilligt engagement</h3>
           <ul class="list">
-            <li>Medarbejderrepræsentant og aktiv i lokalt ERFA-netværk for tillidsvalgte</li>
-            <li>Deltagelse i større organisatoriske projekter med fokus på ansvarlig prioritering</li>
-            <li>Frivilligt engagement i lokale initiativer, herunder indsatser for familier, der har det svært</li>
+            <li><strong>AMR:</strong> Jeg har oplevet, hvordan små virkemidler kan forbedre hverdagen mærkbart, når man får øje på det praktiske</li>
+            <li><strong>En god jul for alle:</strong> Her ser man tydeligt, hvor langt små midler kan række, når de rammer et konkret behov</li>
+            <li><strong>Lokalt:</strong> Jeg bor og engagerer mig lokalt, og jeg tror på, at nærhed til hverdagen giver bedre prioriteringer</li>
           </ul>
           <p style="margin-top:10px;">
-            For mig handler frivilligt arbejde ikke om synlighed, men om at bidrage dér,
-            hvor en indsats gør en forskel.
+            For mig handler engagement ikke om synlighed, men om at bidrage dér, hvor en indsats gør en forskel.
           </p>
         </div>
       </div>
@@ -427,41 +517,74 @@
       <div class="mini" style="margin-top:14px;">
         <h3>Personlig tilgang</h3>
         <p>
-          Jeg ser mig selv som en jordnær og ansvarlig person, der tror på dialog frem for positioner.
-          Jeg prioriterer fairness, gennemsigtighed og sunde beslutninger, også når det kræver,
-          at man stiller de svære spørgsmål.
+          Jeg ser mig selv som en ordentlig og ansvarlig person, der tror på dialog frem for positioner.
+          Jeg prioriterer fairness og gennemsigtighed, også når det kræver, at man stiller de svære spørgsmål.
         </p>
-
-        <!-- OPDATERET SLUTLINJE -->
         <p style="margin-top:10px;">
-          Min motivation for at stille op udspringer af et oprigtigt ønske om at bidrage konstruktivt,
-          og samtidig være med til at skabe værdi i hverdagen gennem ansvarlige prioriteringer.
+          Min motivation for at stille op udspringer af et oprigtigt ønske om at bidrage konstruktivt
+          og hjælpe med at skabe værdi i hverdagen gennem ansvarlige prioriteringer.
         </p>
       </div>
     </section>
 
     <section id="maerkesager" class="card sectionCard">
       <div class="sectionTitle">
-        <h2>Mærkesager</h2>
-        <p>Det jeg vil arbejde for i bestyrelsesarbejdet</p>
+        <h2>Det lægger jeg vægt på</h2>
+        <p>Det jeg især vil bidrage med i bestyrelsesarbejdet</p>
       </div>
+
       <div class="grid3">
         <div class="mini">
-          <h3>Regional udvikling</h3>
+          <h3>Als og Sønderborg</h3>
           <p>
-            Støtte til initiativer i Sønderjylland og på Als, med fokus på lokale behov, arbejdspladser og fællesskaber.
+            Jeg har et naturligt blik for lokale behov og muligheder på Als og i Sønderborg,
+            og jeg lægger vægt på, at indsatser kan mærkes tæt på hverdagen.
           </p>
         </div>
         <div class="mini">
-          <h3>Flere nicheprojekter</h3>
+          <h3>Små indsatser, stor effekt</h3>
           <p>
-            Flere mindre projekter, hvor effekten kan mærkes direkte. Mindre af det, der ser godt ud på papir, men ikke i hverdagen.
+            Jeg tror på mindre, målrettede projekter, hvor man kan se effekten direkte.
+            Det er ofte her, relativt små midler kan flytte mest.
           </p>
         </div>
         <div class="mini">
-          <h3>Sunde prioriteringer</h3>
+          <h3>Ansvarlighed og gennemsigtighed</h3>
           <p>
-            Klarere kriterier, tydeligere opfølgning og ansvarlig brug af midler. Fokus på effekt, læring og transparens.
+            Klarere prioriteringer, tydelig opfølgning og respekt for fondens formål,
+            så midlerne bruges på en måde, der skaber langsigtet værdi.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Punkt 4: ny sektion om praksis -->
+    <section id="praksis" class="card sectionCard">
+      <div class="sectionTitle">
+        <h2>Sådan arbejder jeg i praksis</h2>
+        <p>Adfærd og arbejdsmåde, ikke bare ord</p>
+      </div>
+
+      <div class="grid3">
+        <div class="mini">
+          <h3>Jeg forbereder mig grundigt</h3>
+          <p>
+            Jeg læser materialet, forstår konteksten og møder op med overblik,
+            så tiden bruges på de rigtige beslutninger.
+          </p>
+        </div>
+        <div class="mini">
+          <h3>Jeg stiller spørgsmål og følger op</h3>
+          <p>
+            Jeg søger klare svar og forankrer beslutninger i det, der kan gennemføres.
+            Jeg følger op, så gode intentioner bliver til praksis.
+          </p>
+        </div>
+        <div class="mini">
+          <h3>Jeg kommunikerer klart tilbage</h3>
+          <p>
+            Jeg lægger vægt på tydelighed og respekt, og at man kan forstå både valg,
+            prioriteringer og næste skridt.
           </p>
         </div>
       </div>
@@ -476,13 +599,15 @@
         <div class="mini">
           <h3>Jordnær pragmatisme</h3>
           <p>
-            Jeg går efter løsninger, der virker. Ikke fordi de lyder rigtige, men fordi de kan gennemføres og skabe varig værdi.
+            Jeg går efter løsninger, der virker i praksis. Det skal kunne gennemføres
+            og give varig værdi, ikke bare lyde rigtigt.
           </p>
         </div>
         <div class="mini">
-          <h3>Effekt over prestige</h3>
+          <h3>Værdi i hverdagen</h3>
           <p>
-            Jeg vil hellere støtte ti indsatser, der løfter hverdagen, end ét projekt, der primært giver flotte overskrifter.
+            Jeg hælder mod indsatser, hvor man kan mærke effekten tæt på mennesker og lokalsamfund,
+            og hvor prioriteringerne er tydelige.
           </p>
         </div>
       </div>
@@ -496,19 +621,17 @@
       <div class="split">
         <div class="mini">
           <h3>Hvorfor stiller du op?</h3>
-
-          <!-- OPDATERET Q&A -->
           <p>
             Fordi fondens formål er vigtigt, og fordi jeg gerne vil bidrage konstruktivt til arbejdet.
-            Jeg tror på ansvarlige prioriteringer, gennemsigtighed og fokus på værdi i hverdagen.
-            Jeg har ofte set, at små indsatser kan gøre en stor forskel, når de rammer rigtigt.
+            Jeg lægger vægt på ansvarlighed, gennemsigtighed og fokus på værdi i hverdagen,
+            og jeg har ofte set, at små indsatser kan gøre en stor forskel, når de rammer rigtigt.
           </p>
         </div>
         <div class="mini">
           <h3>Hvad er din tilgang i bestyrelsesarbejdet?</h3>
           <ul class="list">
-            <li>Stille de rigtige spørgsmål og kræve klare svar</li>
-            <li>Fokusere på konkrete effekter og målepunkter</li>
+            <li>Stille de rigtige spørgsmål og bede om klare svar</li>
+            <li>Fokusere på gennemførlighed og tydelig opfølgning</li>
             <li>Være nysgerrig, lære og omsætte indsigter til handling</li>
           </ul>
         </div>
